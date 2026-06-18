@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Яне — 19 лет ✦</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-warm-dark: #2c1420;
+            --gold: #dbb45c;
+            --gold-light: #f3da94;
+            --wine: #7b2d3a;
+            --wine-glow: #a2434c;
+            --text-light: #f8f1e6;
+            --text-muted: #c4b29a;
+            --border-subtle: rgba(219, 180, 92, 0.4);
+            --shadow-card: 0 8px 22px rgba(0,0,0,0.35);
+            --shadow-glow: 0 0 28px rgba(219, 180, 92, 0.35);
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        body {
+            background: radial-gradient(ellipse at 35% 30%, #e8c38b 0%, #c27783 25%, #6e2937 55%, #32141f 100%);
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+            backdrop-filter: blur(2px);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.06"><path d="M10 10 L20 15 L30 10 L25 20 L35 25 L25 30 L30 40 L20 35 L10 40 L15 30 L5 25 L15 20 Z" fill="%23f3da94"/></svg>');
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1300px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px 10px;
+        }
+        .hero-badge {
+            display: inline-block;
+            border: 1.5px solid var(--gold-light);
+            color: #fae3b6;
+            padding: 8px 28px;
+            letter-spacing: 5px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            backdrop-filter: blur(6px);
+            background: rgba(60, 25, 35, 0.5);
+            border-radius: 30px;
+            box-shadow: 0 0 18px rgba(219, 180, 92, 0.3);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 700;
+            color: #fdf3e1;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            line-height: 1.1;
+            text-shadow: 0 0 25px rgba(180, 120, 60, 0.5);
+        }
+        .hero h1 .name {
+            background: linear-gradient(135deg, #f5da81 0%, #fcefc0 50%, #e1b354 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            font-style: italic;
+            letter-spacing: 3px;
+        }
+        .hero .sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #ecd3b0;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+        .hero .age-line {
+            margin-top: 18px;
+            font-weight: 300;
+            color: #fae3c6;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            border-top: 1px dashed rgba(219, 180, 92, 0.5);
+            display: inline-block;
+            padding-top: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 10px 0 50px;
+        }
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        @media (max-width: 500px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .card {
+            background: rgba(50, 20, 28, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(219, 180, 92, 0.45);
+            border-radius: 18px;
+            padding: 26px 16px 22px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-card), 0 0 15px rgba(190, 130, 60, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+            overflow: hidden;
+            transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), opacity 0.3s;
+        }
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            transition: border-color 0.4s;
+            pointer-events: none;
+        }
+        .card.active {
+            cursor: pointer;
+        }
+        .card.active:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-glow), 0 20px 35px rgba(0,0,0,0.55);
+            border-color: var(--gold-light);
+            background: rgba(70, 28, 38, 0.7);
+        }
+        .card.active:hover::after {
+            border-color: rgba(245, 210, 140, 0.7);
+        }
+        .card.locked {
+            opacity: 0.6;
+            filter: grayscale(0.5);
+            cursor: not-allowed;
+            border-color: rgba(120, 80, 60, 0.3);
+        }
+        .card.locked .card-glow {
+            display: none;
+        }
+        .card.locked .card-number,
+        .card.locked .card-hint {
+            opacity: 0.5;
+        }
+
+        .lock-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 18px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .card.locked .lock-overlay {
+            opacity: 1;
+        }
+        .lock-overlay .lock-icon {
+            font-size: 3.2rem;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(255, 200, 100, 0.3);
+            margin-bottom: 4px;
+        }
+        .lock-overlay .lock-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #f1dbb6;
+            background: rgba(0,0,0,0.4);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(219, 180, 92, 0.3);
+        }
+
+        .card-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(180deg, #f9e6a8 0%, #c79a4c 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+        .card-hint {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #f1dbb6;
+            letter-spacing: 1.2px;
+            position: relative;
+            z-index: 2;
+            font-weight: 400;
+        }
+        .card-glow {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, rgba(245, 200, 110, 0.3) 0%, transparent 70%);
+            top: 20px;
+            right: 15px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .card.active:hover .card-glow {
+            background: radial-gradient(circle, rgba(250, 215, 120, 0.6) 0%, transparent 70%);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 8, 12, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal {
+            background: #2b1820;
+            background-image: linear-gradient(145deg, #3b1f28 0%, #1c0e14 100%);
+            border: 1px solid var(--gold-light);
+            border-radius: 28px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            padding: 35px 30px 30px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(219, 180, 92, 0.6), 0 0 45px rgba(200, 140, 60, 0.5);
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1);
+            overflow-y: auto;
+            margin: auto;
+        }
+        .modal-overlay.active .modal {
+            transform: scale(1) translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #f1dbb6;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+            font-family: serif;
+            z-index: 10;
+        }
+        .modal-close:hover {
+            color: #ffe5ad;
+        }
+        .modal-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #eccd80;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+        .modal-wish {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-style: italic;
+            color: #fdf4e4;
+            margin-bottom: 24px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .modal-verse {
+            background: rgba(219, 180, 92, 0.12);
+            border-left: 3px solid var(--gold);
+            padding: 16px 20px;
+            margin-bottom: 22px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: #f1e0ca;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border-radius: 0 12px 12px 0;
+            line-height: 1.7;
+        }
+        .modal-verse .ref {
+            display: block;
+            margin-top: 8px;
+            font-weight: 500;
+            color: #e7c581;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+        .modal-extra {
+            background: #1f1016;
+            border-radius: 14px;
+            padding: 16px 20px;
+            color: #d3bba0;
+            font-size: 0.9rem;
+            border: 1px solid rgba(219, 180, 92, 0.35);
+            letter-spacing: 0.4px;
+            line-height: 1.6;
+        }
+        .modal-extra .extra-label {
+            font-weight: 600;
+            color: #efcf85;
+            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #c2a27b;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            padding: 10px 0 30px;
+            border-top: 1px solid rgba(219, 180, 92, 0.35);
+            margin-top: 20px;
+        }
+        .footer span {
+            color: #eccd80;
+        }
+
+        .modal::-webkit-scrollbar {
+            width: 5px;
+        }
+        .modal::-webkit-scrollbar-track {
+            background: #351e24;
+            border-radius: 10px;
+        }
+        .modal::-webkit-scrollbar-thumb {
+            background: #9b7a5a;
+            border-radius: 10px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(30, 12, 18, 0.9);
+            backdrop-filter: blur(6px);
+            border: 1px solid var(--gold-light);
+            color: #fae3c6;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            pointer-events: none;
+            z-index: 200;
+            white-space: nowrap;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-badge">✦ С ДНЁМ РОЖДЕНИЯ ✦</div>
+            <h1><span class="name">Яна</span></h1>
+            <div class="sub">взрослая, сильная, настоящая</div>
+            <div class="age-line">сегодня тебе 19 — время сиять</div>
+        </div>
+
+        <div class="grid" id="cardGrid"></div>
+
+        <div class="footer">
+            с любовью и восхищением <span>✦</span> для Яны
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modalContent">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        (function() {
+            const wishes = [
+                { id: 1, hint: "Вера", wish: "Пусть твоя вера будет крепкой, как скала, и помогает тебе преодолевать любые трудности. Верь в себя и в то, что всё возможно.", verse: "Всё возможно верующему.", ref: "Евангелие от Марка 9:23", extraTitle: "Интересный факт", extra: "Слово «Аминь» происходит от древнееврейского корня, означающего «истинно» или «да будет так». Это одно из самых распространённых слов в христианском богослужении." },
+                { id: 2, hint: "Мудрость", wish: "Ищи мудрость, как сокровище, и она сделает твою жизнь яркой и осмысленной. Учись каждый день новому.", verse: "Приобретай мудрость, приобретай разум: не забывай и не уклоняйся от слов уст моих.", ref: "Притчи 4:5", extraTitle: "Интересный факт", extra: "Книга Притчей — одна из книг мудрости Ветхого Завета, большая часть которой приписывается царю Соломону, известному своей мудростью." },
+                { id: 3, hint: "Любовь", wish: "Люби искренне, не ожидая награды, и твоё сердце наполнится теплом. Любовь преображает всё вокруг.", verse: "Любовь да будет непритворна; отвращайтесь зла, прилепляйтесь к добру.", ref: "Послание к Римлянам 12:9", extraTitle: "Интересный факт", extra: "Символ рыбы (ихтис) использовался ранними христианами как тайный знак. Греческое слово «ихтис» расшифровывалось как «Иисус Христос, Божий Сын, Спаситель»." },
+                { id: 4, hint: "Смелость", wish: "Будь смелой и не бойся перемен, ведь впереди столько возможностей. Твоя уникальность — твоя сила.", verse: "Не бойся, ибо Я с тобою; не смущайся, ибо Я Бог твой; Я укреплю тебя, и помогу тебе.", ref: "Книга пророка Исаии 41:10", extraTitle: "Интересный факт", extra: "Ранние христиане часто подвергались гонениям, но их мужество и стойкость поражали даже противников, что способствовало распространению веры." },
+                { id: 5, hint: "Прощение", wish: "Умение прощать освобождает душу и дарит лёгкость. Отпускай обиды и живи свободно.", verse: "Прощайте, и прощены будете.", ref: "Евангелие от Луки 6:37", extraTitle: "Притча", extra: "Притча о блудном сыне напоминает: как бы далеко мы ни ушли, любящий Отец всегда ждёт с распростёртыми объятиями, готовый простить и принять." },
+                { id: 6, hint: "Благодарность", wish: "Замечай хорошее в каждом дне, и жизнь засияет новыми красками. Благодарность притягивает радость.", verse: "За всё благодарите: ибо такова о вас воля Божия во Христе Иисусе.", ref: "Первое послание к Фессалоникийцам 5:18", extraTitle: "Интересный факт", extra: "Традиция благодарственных молитв глубоко укоренена в христианстве. Понятие «Евхаристия» с греческого переводится как «благодарение»." },
+                { id: 7, hint: "Надежда", wish: "Пусть надежда освещает твой путь даже в самые пасмурные времена. После любой ночи наступает рассвет.", verse: "Бог надежды да исполнит вас всякой радости и мира в вере, дабы вы, силою Духа Святого, обогатились надеждою.", ref: "Послание к Римлянам 15:13", extraTitle: "Интересный факт", extra: "Радуга в Библии появляется как знак завета между Богом и человечеством после потопа — символ надежды и обещания." },
+                { id: 8, hint: "Смирение", wish: "Истинная сила — в умении оставаться скромной и открытой к миру. Не путай гордость с достоинством.", verse: "Бог гордым противится, а смиренным даёт благодать.", ref: "Первое послание Петра 5:5", extraTitle: "Притча", extra: "Притча о фарисее и мытаре показывает, что искреннее смирение ценнее показной праведности: «всякий, возвышающий сам себя, унижен будет»." },
+                { id: 9, hint: "Терпение", wish: "Терпение — ключ к достижению больших целей. Не сдавайся, даже если путь кажется долгим.", verse: "Терпение нужно вам, чтобы, исполнив волю Божию, получить обещанное.", ref: "Послание к Евреям 10:36", extraTitle: "Интересный факт", extra: "Строительство великих соборов Средневековья часто длилось веками, и мастера знали, что не увидят завершения, но продолжали трудиться с верой и терпением." },
+                { id: 10, hint: "Доброта", wish: "Твори добро без оглядки, и оно вернётся сторицей. Тёплые поступки меняют мир к лучшему.", verse: "Делая добро, да не унываем, ибо в своё время пожнём, если не ослабеем.", ref: "Послание к Галатам 6:9", extraTitle: "Притча", extra: "Притча о добром самарянине учит: настоящий ближний — тот, кто проявляет милосердие, независимо от национальности или статуса." },
+                { id: 11, hint: "Мир", wish: "Храни внутренний мир и гармонию, они драгоценнее всего. Не позволяй суете украсть твой покой.", verse: "Мир оставляю вам, мир Мой даю вам; не так, как мир даёт, Я даю вам.", ref: "Евангелие от Иоанна 14:27", extraTitle: "Интересный факт", extra: "Еврейское слово «шалом» означает не просто отсутствие войны, а целостность, благополучие и полноту жизни — именно такой мир дарит Христос." },
+                { id: 12, hint: "Радость", wish: "Радуйся каждому мгновению, ведь жизнь — бесценный дар. Находи радость в мелочах.", verse: "Радуйтесь всегда в Господе; и ещё говорю: радуйтесь.", ref: "Послание к Филиппийцам 4:4", extraTitle: "Интересный факт", extra: "Пасха — главный христианский праздник, наполненный ликованием. Традиционное приветствие «Христос воскресе!» и ответ «Воистину воскресе!» выражают суть христианской радости." },
+                { id: 13, hint: "Усердие", wish: "Будь усердна в учёбе и труде, это принесёт достойные плоды. Вкладывай душу в то, что делаешь.", verse: "Всё, что делаете, делайте от души, как для Господа, а не для человеков.", ref: "Послание к Колоссянам 3:23", extraTitle: "Интересный факт", extra: "Монастырские скриптории в Средние века были центрами сохранения знаний; монахи кропотливо переписывали рукописи, проявляя невероятное усердие." },
+                { id: 14, hint: "Честность", wish: "Будь честной перед собой и другими, это фундамент доверия и самоуважения.", verse: "Говорите истину каждый ближнему своему, потому что мы члены друг другу.", ref: "Послание к Ефесянам 4:25", extraTitle: "Притча", extra: "Притча о талантах напоминает: честно используй данные тебе дары и возможности, не зарывай их в землю, а приумножай." },
+                { id: 15, hint: "Сострадание", wish: "Умей чувствовать боль других и поддерживать их, это делает нас по-настоящему людьми.", verse: "Радуйтесь с радующимися и плачьте с плачущими.", ref: "Послание к Римлянам 12:15", extraTitle: "Интересный факт", extra: "В ранней церкви существовало служение диаконис — женщин, которые помогали бедным, больным и занимались благотворительностью, проявляя деятельное сострадание." },
+                { id: 16, hint: "Верность", wish: "Будь верна своим ценностям и близким, это твоя опора в любые времена.", verse: "Будь верен до смерти, и дам тебе венец жизни.", ref: "Откровение Иоанна 2:10", extraTitle: "Интересный факт", extra: "Многие мученики первых веков предпочитали смерть отречению от веры. Их стойкость вдохновляла свидетелей и укрепляла христианскую общину." },
+                { id: 17, hint: "Благородство", wish: "Стремись к высоким идеалам и вдохновляй других. Твоя внутренняя красота освещает путь.", verse: "Что только истинно, что честно, что справедливо, что чисто, что любезно, что достославно... о том помышляйте.", ref: "Послание к Филиппийцам 4:8", extraTitle: "Притча", extra: "Притча о жемчужине говорит: Царство Небесное подобно драгоценной жемчужине, ради которой купец продаёт всё, что имеет. Ищи самое важное." },
+                { id: 18, hint: "Познание", wish: "Учись постоянно, открывай новое, ведь мир полон удивительных тайн. Знания делают свободной.", verse: "Познаете истину, и истина сделает вас свободными.", ref: "Евангелие от Иоанна 8:32", extraTitle: "Интересный факт", extra: "Библия Гутенберга — первая крупная книга, напечатанная наборным шрифтом в 1450-х годах, открыла эру книгопечатания и распространения знаний." },
+                { id: 19, hint: "Любовь Божья", wish: "Знай, что ты безмерно любима и ценна просто потому, что ты есть. Твоя жизнь — драгоценный дар.", verse: "Любовью вечною Я возлюбил тебя и потому простёр к тебе благоволение.", ref: "Книга пророка Иеремии 31:3", extraTitle: "Интересный факт", extra: "Христианство уникально учением о личных отношениях с Богом — не просто следование правилам, а диалог любви и доверия." }
+            ];
+
+            // ===== Новая логика: старт с 18-го числа =====
+            const now = new Date();
+            const currentDay = now.getDate();          // число месяца (1–31)
+            const START_DAY = 18;                      // день, с которого начинается отсчёт
+            let dayOffset = currentDay - START_DAY + 1; // день 1 = 18-е число
+            if (dayOffset < 1) dayOffset = 0;          // если сегодня раньше 18-го, ничего не открыто
+            const maxCards = wishes.length;
+            const availableCount = Math.min(dayOffset, maxCards); // сколько карточек доступно
+
+            const grid = document.getElementById('cardGrid');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalContent = document.getElementById('modalContent');
+            const modalBody = document.getElementById('modalBody');
+            const modalClose = document.getElementById('modalClose');
+            const toast = document.getElementById('toast');
+            let toastTimeout = null;
+
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                clearTimeout(toastTimeout);
+                toastTimeout = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            wishes.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.id = item.id;
+
+                const isAvailable = (item.id <= availableCount);
+
+                card.innerHTML = `
+                    <div class="card-glow"></div>
+                    <div class="card-number">${item.id < 10 ? '0' + item.id : item.id}</div>
+                    <div class="card-hint">${item.hint}</div>
+                    <div class="lock-overlay">
+                        <div class="lock-icon">🔒</div>
+                        <div class="lock-text">Закрыто</div>
+                    </div>
+                `;
+
+                if (isAvailable) {
+                    card.classList.add('active');
+                    card.addEventListener('click', () => openModal(item));
+                } else {
+                    card.classList.add('locked');
+                    card.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showToast(`🔐 Эта ячейка откроется позже`);
+                    });
+                }
+
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(25px)';
+                card.style.transition = `all 0.5s ease ${index * 0.04}s`;
+                grid.appendChild(card);
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            });
+
+            function openModal(data) {
+                modalBody.innerHTML = `
+                    <div class="modal-number">#${data.id < 10 ? '0' + data.id : data.id}</div>
+                    <div class="modal-wish">«${data.wish}»</div>
+                    <div class="modal-verse">
+                        ${data.verse}
+                        <span class="ref">— ${data.ref}</span>
+                    </div>
+                    <div class="modal-extra">
+                        <div class="extra-label">${data.extraTitle}</div>
+                        ${data.extra}
+                    </div>
+                `;
+                modalContent.scrollTop = 0;
+                modalOverlay.classList.add('active');
+                // Скролл страницы не блокируется
+            }
+
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+            }
+
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
